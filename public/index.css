@@ -1,0 +1,63 @@
+:root {
+    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+  
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+  
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  body {
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+.btn {
+    border: white;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.sh-btn {background-color: #008CBA;} /* Blue */
+
+
+.url {
+    height:30px;
+    min-width:250px;
+    width: 500px;
+    font-size:14pt;
+}
+.url-sh {
+    text-align: center;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+      color: #213547;
+      background-color: #ffffff;
+    }
+    a:hover {
+      color: #747bff;
+    }
+    button {
+      background-color: #f9f9f9;
+    }
+  }
