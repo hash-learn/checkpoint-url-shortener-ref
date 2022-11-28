@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 
-const DOMAIN_NAME = "localhost:3000/"
+const DOMAIN_NAME = process.env.HOSTNAME || "localhost:3000"
 
 
 router
@@ -29,7 +29,7 @@ router
     <body>
     <div id="root" >
     <br/>
-    <h1>${DOMAIN_NAME + aliasToDisplay}</h1>
+    <h1>${DOMAIN_NAME + '/' + aliasToDisplay}</h1>
     <button onclick="location.href = '/';" class="btn sh-btn" >Shorten another URL</button>
     </div>
     </body>`;
