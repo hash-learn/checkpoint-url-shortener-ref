@@ -1,4 +1,4 @@
-const {saveShortUrl, idToShortURL} = require('../models/url');
+const {saveShortUrl, idToShortURL, UrlModel} = require('../models/url');
 
 const express = require('express');
 const router = express.Router();

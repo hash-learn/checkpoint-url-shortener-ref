@@ -46,4 +46,4 @@ function saveShortUrl(url, alias){
     urlObj.save().then( result => console.log(result));
 }
 
-module.exports = {idToShortURL, saveShortUrl}
+module.exports = {idToShortURL, saveShortUrl, UrlModel}
