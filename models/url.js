@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://hashinsert:mongooseHI@cluster0.ajmcdal.mongodb.net/hi_shorturl?retryWrites=true&w=majority')
+mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.ajmcdal.mongodb.net/hi_shorturl?retryWrites=true&w=majority`)
 .then(() => console.log("connected to MongoDB..."))
 .catch((err) => console.error(err));
 
