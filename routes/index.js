@@ -42,7 +42,6 @@ router
 .get((req,res) => {
     const { alias } = req.params;
     UrlModel.findOne({ alias: alias}, 'url', function (err, urlObj) {
-        console.log(urlObj);
         if(!urlObj){
             res.status(404).send("Link not found !!")
         } else{
