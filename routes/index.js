@@ -10,17 +10,17 @@ const DOMAIN_NAME = process.env.HOSTNAME || "localhost:3000"
 router
 .route('/i/google')
 .get((req, res) => {
-    res.send('{"service": "/i/google", \
-    "website" : "Google" ,\
-    "url" : "https://www.google.com"}')
+    res.json({"service": "/i/google",
+    "website" : "Google",
+    "url" : "https://www.google.com"})
 })
 
 router
 .route('/i/github')
 .get((req, res) => {
-    res.send('{"service": "/i/github", \
-    "website" : "GitHub" ,\
-    "url" : "https://www.github.com"}')
+    res.json({"service": "/i/github",
+    "website" : "GitHub",
+    "url" : "https://www.github.com"})
 })
 
 // Redirect service examples
