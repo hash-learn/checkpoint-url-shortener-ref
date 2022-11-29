@@ -3,6 +3,7 @@ const {saveShortUrl, idToShortURL, UrlModel} = require('../models/url');
 const express = require('express');
 const router = express.Router();
 
+const URL_ALIASES = [];
 
 const DOMAIN_NAME = process.env.HOSTNAME || "localhost:3000"
 
@@ -34,6 +35,36 @@ router
 .route('/r/github')
 .get((req, res) => {
     res.redirect('https://www.github.com')
+})
+
+router
+.route('/r/:alias')
+.get((req, res) => {
+    const { alias } = req.params;
+    const mappingObj = URL_ALIASES.find((mapping) => mapping.alias === alias)
+    if(mappingObj) {
+        res.redirect(mappingObj.url)
+    } else {
+        res.status(403).send('Alias not found!!')
+    }
+})
+
+router
+.route('/map')
+.post( (req, res) => {
+    const {url, alias} = req.body;
+    if(url && alias) {
+        URL_ALIASES.push({alias, url})
+        res.send(`Successfully added ${alias} !! `);
+    } else {
+        res.status(403).send('Both URL and the alias are required!!');        
+    }
+})
+
+router
+.route('/mapping')
+.get( (req, res) => {
+        res.send(URL_ALIASES);
 })
 
 router
