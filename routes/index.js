@@ -6,6 +6,35 @@ const router = express.Router();
 
 const DOMAIN_NAME = process.env.HOSTNAME || "localhost:3000"
 
+// Info service examples
+router
+.route('/i/google')
+.get((req, res) => {
+    res.send('{"service": "/i/google", \
+    "website" : "Google" ,\
+    "url" : "https://www.google.com"}')
+})
+
+router
+.route('/i/github')
+.get((req, res) => {
+    res.send('{"service": "/i/github", \
+    "website" : "GitHub" ,\
+    "url" : "https://www.github.com"}')
+})
+
+// Redirect service examples
+router
+.route('/r/google')
+.get((req, res) => {
+    res.redirect('https://www.google.com')
+})
+
+router
+.route('/r/github')
+.get((req, res) => {
+    res.redirect('https://www.github.com')
+})
 
 router
 .route('/shorten')
