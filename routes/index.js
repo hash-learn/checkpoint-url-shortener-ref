@@ -87,10 +87,20 @@ router
     // Redirecting to users endpoint after adding the new user
     const response = `<link rel="stylesheet" type="text/css" href="index.css">
     <body>
-    <div id="root" >
-    <br/>
-    <h1>${DOMAIN_NAME + '/' + aliasToDisplay}</h1>
-    <button onclick="location.href = '/';" class="btn sh-btn" >Shorten another URL</button>
+    <div class="header">
+        <a href="#default" class="logo">Lug7</a>
+        <div class="header-right">
+          <a class="active" href="#home">Home</a>
+          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+        </div>
+    </div>
+    <div class="signupSection" >
+    <div class="response">
+    <input type="url" class="responseField" id="url" name="url" value="${DOMAIN_NAME + '/' + aliasToDisplay}" disabled/>
+    <h1></h1>
+    <button onclick="location.href = '/';" class="shorten-btn" >Shorten another URL</button>
+    </div>
     </div>
     </body>`;
     res.send(response);
