@@ -52,19 +52,13 @@ router
 router
 .route('/map')
 .post( (req, res) => {
-    const {url, alias} = req.body;
-    if(url && alias) {
-        URL_ALIASES.push({alias, url})
-        res.send(`Successfully added ${alias} !! `);
-    } else {
-        res.status(403).send('Both URL and the alias are required!!');        
-    }
+// write your code here
 })
 
 router
 .route('/mapping')
 .get( (req, res) => {
-        res.send(URL_ALIASES);
+// write your code here
 })
 
 router
@@ -73,51 +67,14 @@ router
     res.redirect('/');
 })
 .post( (req, res) => {
-    const {url, alias} = req.body;
-    let aliasToDisplay;
-    if(alias) {
-        aliasToDisplay = alias;
-    } else {
-        const timestamp_secs = Math.floor(Date.now() /1000)
-        aliasToDisplay = idToShortURL(timestamp_secs);
-        // Creating the url-alias mapping in MongoDB 
-        saveShortUrl(url, aliasToDisplay);    
-    }
-
-    // Redirecting to users endpoint after adding the new user
-    const response = `<link rel="stylesheet" type="text/css" href="index.css">
-    <body>
-    <div class="header">
-        <a href="#default" class="logo">Lug7</a>
-        <div class="header-right">
-          <a class="active" href="#home">Home</a>
-          <a href="#contact">Contact</a>
-          <a href="#about">About</a>
-        </div>
-    </div>
-    <div class="signupSection" >
-    <div class="response">
-    <input type="url" class="responseField" id="url" name="url" value="${DOMAIN_NAME + '/' + aliasToDisplay}" disabled/>
-    <h1></h1>
-    <button onclick="location.href = '/';" class="shorten-btn" >Shorten another URL</button>
-    </div>
-    </div>
-    </body>`;
-    res.send(response);
+// write your code here
 })
 
 // Short URL Route
 router
 .route('/:alias')
 .get((req,res) => {
-    const { alias } = req.params;
-    UrlModel.findOne({ alias: alias}, 'url', function (err, urlObj) {
-        if(!urlObj){
-            res.status(404).send("Link not found !!")
-        } else{
-            res.redirect(urlObj.url)            
-        }
-    });
+// write your code here
 })
 
 module.exports = router;
